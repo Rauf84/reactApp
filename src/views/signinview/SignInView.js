@@ -9,7 +9,8 @@ export const SignInView = () => {
     const [authenticateduser, setAuthenticatedUser] = useContext (UserContext)
     const logIn =()=> {
         setAuthenticatedUser(username);
-        history.goBack();
+        history.push("/",{String: "Message from SignInView"});
+        
     }
     const history = useHistory();
     return (

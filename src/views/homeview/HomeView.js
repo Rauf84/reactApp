@@ -6,6 +6,7 @@ import { ProductGrid } from '../../components/productgrid/ProductGrid'
 import t1 from "../../shared/img/t1.jpg"
 import { useState, useEffect } from 'react'
 import axios from 'axios'
+import { useLocation } from 'react-router'
 
 export const HomeView = () => {
     const [count, setCount] = useState(1);
@@ -24,6 +25,7 @@ export const HomeView = () => {
             alert("Error: " + error);
         };
     }
+    const location = new URLSearchParams (useLocation().state);
 
     const fetchDataAll = async () => {
         try{
@@ -52,6 +54,9 @@ export const HomeView = () => {
     return (
         <main>
             <Header/>
+            <div>
+                <h3>useLocation = {location}</h3>
+            </div>
             <section>
                 <h2>Min API anrop:</h2> <br/>
                 <h3>{serverrespons?. data?.name}</h3>
